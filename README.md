@@ -40,15 +40,16 @@ try
     // instantiate a content update struct and set the new fields
     $contentUpdateStruct = $contentService->newContentUpdateStruct();
     $contentUpdateStruct->initialLanguageCode = 'eng-US'; // set language for new version
-    $matrixValue = new \EzSystems\MatrixBundle\FieldType\Matrix\Value( array(
-                                                                              new \EzSystems\MatrixBundle\FieldType\Matrix\Row( array( 'col1' => 'row1col1', 'col2' => 'row1col2' ) ),
-                                                                              new \EzSystems\MatrixBundle\FieldType\Matrix\Row( array( 'col1' => 'row2col2', 'col2' => 'row2col2' ) ),
-                                                                            ),
-                                                                       array(
-                                                                              new \EzSystems\MatrixBundle\FieldType\Matrix\Column( array( 'name' => 'Column 1', 'id' => 'col1', 'num' => 0 ) ),
-                                                                              new \EzSystems\MatrixBundle\FieldType\Matrix\Column( array( 'name' => 'Column 2', 'id' => 'col2', 'num' => 1 ) ),
-                                                                            )
-                                                                     );
+    $matrixValue = new \EzSystems\MatrixBundle\FieldType\Matrix\Value(
+        array(
+            new \EzSystems\MatrixBundle\FieldType\Matrix\Row( array( 'col1' => 'row1col1', 'col2' => 'row1col2' ) ),
+            new \EzSystems\MatrixBundle\FieldType\Matrix\Row( array( 'col1' => 'row2col2', 'col2' => 'row2col2' ) ),
+        ),
+        array(
+            new \EzSystems\MatrixBundle\FieldType\Matrix\Column( array( 'name' => 'Column 1', 'id' => 'col1', 'num' => 0 ) ),
+            new \EzSystems\MatrixBundle\FieldType\Matrix\Column( array( 'name' => 'Column 2', 'id' => 'col2', 'num' => 1 ) ),
+        )
+    );
     $contentUpdateStruct->setField( 'title', $newTitle );
     $contentUpdateStruct->setField( 'matrix', $matrixValue );
     // update and publish draft
