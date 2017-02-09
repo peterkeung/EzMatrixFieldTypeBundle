@@ -26,6 +26,8 @@ Here's an example on how to update the value of a matrix field for a content ite
 $repository = $this->getContainer()->get( 'ezpublish.api.repository' );
 $contentService = $repository->getContentService();
 
+// This example for setting a current user is valid for 5.x and early versions of 6.x installs
+// This is deprecated from 6.6, and you should use PermissionResolver::setCurrentUserReference() instead
 $repository->setCurrentUser( $repository->getUserService()->loadUser( 14 ) );
 
 $contentId = 26926;
